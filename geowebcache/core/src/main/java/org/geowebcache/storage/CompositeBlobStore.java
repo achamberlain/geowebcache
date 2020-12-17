@@ -282,6 +282,18 @@ public class CompositeBlobStore implements BlobStore, BlobStoreConfigurationList
                                                         && bs.liveInstance.layerExists(layerName)));
     }
 
+    public boolean tileExists(TileObject stObj) throws StorageException {
+        boolean exists = false;
+
+        for (LiveStore bs : blobStores.values()) {
+            if (bs.liveInstance instanceof FileBlobStore) {
+                exists = (exists || ((FileBlobStore) bs.liveInstance).tileExists(stObj));
+            }
+        }
+
+        return (exists);
+    }
+
     private BlobStore store(String layerId) throws StorageException {
 
         LiveStore store;

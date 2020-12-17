@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xml="http://www.w3.org/XML/1998/namespace"
   targetNamespace="http://geowebcache.org/schema/1.18.0" xmlns:gwc="http://geowebcache.org/schema/1.18.0"
-  elementFormDefault="qualified" version="1.19.0">
+  elementFormDefault="qualified" version="1.18.0">
 
   <xs:element name="gwcConfiguration">
     <xs:annotation>
@@ -1510,14 +1510,6 @@
           </xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element name="existingTileFilter" type="gwc:ExistingTileFilter">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">
-            A filter that uses the existing cache to determine where there is data.  For any zoom-level
-            where this filter is set, no further requests to the backend WMS will be made.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
     </xs:choice>
   </xs:complexType>
 
@@ -1723,45 +1715,6 @@
             The extension of the raster files. Typically you would use a 1 bit
             TIFF,
             but PNG and GIF could also be used.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
-    </xs:sequence>
-  </xs:complexType>
-
-  <xs:complexType name="ExistingTileFilter">
-    <xs:sequence>
-      <xs:element name="name" type="xs:string" minOccurs="1">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">
-            The name of the filter. This is added to the HTTP header when a
-            filter triggers,
-            to make debugging the filters easier. This name should be unique.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
-      <xs:element name="zoomStart" type="xs:integer" minOccurs="0">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">
-            This is the minimum zoom level for which the filter is applied.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
-      <xs:element name="zoomStop" type="xs:integer" minOccurs="1">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">
-            The maximum zoom level for which the filter is applied.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
-      <xs:element name="debug" type="xs:boolean" minOccurs="0">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">
-            Setting this variable to TRUE provides visual debug output by
-            returning a bright
-            green tile where normally a transparent one would be returned. This also means
-            KML
-            hierarchies will link to these particular tiles.
           </xs:documentation>
         </xs:annotation>
       </xs:element>

@@ -60,6 +60,7 @@ import org.geowebcache.config.legends.LegendsRawInfoConverter;
 import org.geowebcache.config.meta.ServiceInformation;
 import org.geowebcache.filter.parameters.*;
 import org.geowebcache.filter.request.CircularExtentFilter;
+import org.geowebcache.filter.request.ExistingTileFilter;
 import org.geowebcache.filter.request.FileRasterFilter;
 import org.geowebcache.filter.request.WMSRasterFilter;
 import org.geowebcache.grid.GridSet;
@@ -420,6 +421,7 @@ public class XMLConfiguration
         xs.alias("circularExtentFilter", CircularExtentFilter.class);
         xs.alias("wmsRasterFilter", WMSRasterFilter.class);
         xs.alias("fileRasterFilter", FileRasterFilter.class);
+        xs.alias("existingTileFilter", ExistingTileFilter.class);
 
         xs.alias("expirationRule", ExpirationRule.class);
         xs.useAttributeFor(ExpirationRule.class, "minZoom");

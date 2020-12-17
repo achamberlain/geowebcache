@@ -531,6 +531,12 @@ public class FileBlobStore implements BlobStore {
         return tilePath;
     }
 
+    public boolean tileExists(TileObject stObj) throws StorageException {
+        File fh = getFileHandleTile(stObj, null);
+
+        return (fh.exists());
+    }
+
     private Resource readFile(File fh) throws StorageException {
         if (!fh.exists()) {
             return null;
